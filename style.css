@@ -1,0 +1,175 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html,
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-size: 1rem;
+  font-family: sans-serif;
+  font-weight: 400;
+  background-color: hsl(0 0% 90%);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+}
+
+.container {
+  width: min(100% - 2rem, 85rem);
+  margin-inline: auto;
+  padding-block: 2em;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-block: 1em;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  gap: 1em;
+}
+
+ul a {
+  text-decoration: none;
+  color: black;
+}
+
+.grid {
+  --radius: 1rem;
+  --gray: hsl(0 0% 0% / 0.5);
+  display: grid;
+  gap: 1em;
+}
+
+.card {
+  display: grid;
+  box-shadow: 0 0 5px 2px var(--gray);
+  border-radius: var(--radius);
+}
+
+.content {
+  padding: 1em;
+  align-self: end;
+  background-color: var(--gray);
+  color: white;
+  font-weight: bold;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+
+.grid img {
+  border-radius: var(--radius);
+  aspect-ratio: 1 / 1.3;
+  object-fit: cover;
+}
+
+.grid img,
+.content {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.goto {
+  text-decoration: none;
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  background-color: lightgreen;
+  width: 2rem;
+  aspect-ratio: 1;
+  color: black;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (width >= 25em) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+}
